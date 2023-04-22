@@ -121,3 +121,7 @@ li {
 #temp-description {
   text-transform: capitalize;
 }
+
+.github-page {
+  margin-left: 90px;
+}
