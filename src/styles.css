@@ -24,12 +24,15 @@ li {
   list-style: none;
 }
 
+.weather-app-wrapper {
+  max-width: 600px;
+  margin: 30px auto;
+}
+
 .weather-app {
   border: 1px solid #dadde1;
   padding: 20px;
-  margin: 30px auto;
   border-radius: 5px;
-  max-width: 600px;
 }
 
 .temperature {
@@ -42,6 +45,12 @@ li {
 .units {
   position: relative;
   top: -34px;
+}
+
+.weather-temps {
+  float: right;
+  text-align: right;
+  margin-top: -60px;
 }
 
 .search-form {
@@ -94,4 +103,13 @@ li {
 
 #temp-description {
   text-transform: capitalize;
+}
+
+.github-page a {
+  text-decoration: none;
+  color: #5199e0;
+}
+
+.github-page:hover a {
+  text-decoration: underline;
 }
