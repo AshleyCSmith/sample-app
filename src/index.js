@@ -8,15 +8,11 @@ let humidityElement = document.querySelector("#humidity");
 let windSpeedElement = document.querySelector("#wind-speed");
 
 function showTemperature(response) {
-  let currentCity = response.data.name;
-  let stateCode = response.data.sys.country;
   temperatureElement.innerHTML = Math.round(response.data.main.temp);
   description.innerHTML = response.data.weather[0].description;
-  cityChange.innerHTML = `${currentCity}, ${stateCode}`;
-  let humidity = response.data.main.humidity;
-  let windSpeed = Math.round(response.data.wind.speed);
-  humidityElement.innerHTML = `${humidity}`;
-  windSpeedElement.innerHTML = `${windSpeed}`;
+  cityChange.innerHTML = response.data.name + ", " + response.data.sys.country;
+  humidityElement.innerHTML = response.data.main.humidity;
+  windSpeedElement.innerHTML = Math.round(response.data.wind.speed);
 }
 
 function searchCity(event) {
@@ -41,3 +37,5 @@ searchForm.addEventListener("submit", searchCity);
 
 let currentLocationButton = document.querySelector("#current-location-button");
 currentLocationButton.addEventListener("click", getCurrentLocationWeather);
+
+getCurrentLocationWeather();
