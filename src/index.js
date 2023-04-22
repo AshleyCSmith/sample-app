@@ -6,6 +6,7 @@ let description = document.querySelector("#temp-description");
 let cityChange = document.querySelector("#city-change");
 let humidityElement = document.querySelector("#humidity");
 let windSpeedElement = document.querySelector("#wind-speed");
+let weatherIcon = document.querySelector("#weather-icon");
 
 function showTemperature(response) {
   temperatureElement.innerHTML = Math.round(response.data.main.temp);
@@ -13,6 +14,7 @@ function showTemperature(response) {
   cityChange.innerHTML = response.data.name + ", " + response.data.sys.country;
   humidityElement.innerHTML = response.data.main.humidity;
   windSpeedElement.innerHTML = Math.round(response.data.wind.speed);
+  weatherIcon.innerHTML = response.data.weather[0].icon;
 }
 
 function searchCity(event) {
