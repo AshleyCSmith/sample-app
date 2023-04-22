@@ -26,9 +26,9 @@ li {
 
 .weather-app {
   border: 1px solid #dadde1;
-  padding: 15px;
-  margin: 20px auto;
-  border-radius: 10px;
+  padding: 20px;
+  margin: 30px auto;
+  border-radius: 5px;
   max-width: 600px;
 }
 
@@ -92,38 +92,6 @@ li {
   background-color: #6785a3;
 }
 
-.forecast {
-  margin-top: 20px;
-}
-
-.forecast h2 {
-  margin-bottom: 10px;
-}
-
-.forecast .row {
-  display: flex;
-}
-
-.forecast .col-1 {
-  background-color: #f7f7f7;
-  border: 1px solid #dadde1;
-  border-radius: 5px;
-  text-align: center;
-  padding: 10px;
-  margin-right: 10px;
-  width: 75px;
-}
-
-.forecast .col-1:last-child {
-  margin-right: 0;
-}
-
 #temp-description {
   text-transform: capitalize;
-}
-
-.github-page {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
 }

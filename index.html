@@ -12,7 +12,6 @@
       crossorigin="anonymous"
     />
 
-    <link rel="stylesheet" href="src/styles.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
@@ -20,6 +19,8 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link rel="stylesheet" href="src/styles.css" />
+
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
   <body>
@@ -57,83 +58,29 @@
         <div class="d-flex">
           <div class="row">
             <div class="col-6">
-              <div class="clearfix">
-                <div class="float-left">
-                  <span class="temperature" id="temperature"></span
-                  ><span class="units"
-                    ><a href="#" id="change-celcius">&deg;C</a> |
-                    <a href="#" id="change-fahrenheit">&deg;F</a></span
-                  >
-                </div>
-              </div>
-            </div>
-            <div class="col-6">
-              <ul>
-                <li>HUMIDITY: <span id="humidity"></span>%</li>
-                <li>WIND: <span id="wind-speed"></span> mph</li>
-              </ul>
+              <span class="temperature" id="temperature"></span
+              ><span class="units"
+                ><a href="#" id="change-celcius">&deg;C</a> |
+                <a href="#" id="change-fahrenheit">&deg;F</a></span
+              >
             </div>
           </div>
         </div>
-        <div class="row forecast no-gutters">
-          <div class="col-12">
-            <h2>7-Day Forecast</h2>
-          </div>
-          <div class="col-12">
-            <div class="row">
-              <div class="col-1">
-                <h6 class="text-center">Mon</h6>
-                <div class="text-center"><i class="fas fa-sun"></i></div>
-                <p class="text-center">High: 68&deg;F</p>
-                <p class="text-center">Low: 55&deg;F</p>
-              </div>
-              <div class="col-1">
-                <h6 class="text-center">Tue</h6>
-                <div class="text-center"><i class="fas fa-cloud-sun"></i></div>
-                <p class="text-center">High: 72&deg;F</p>
-                <p class="text-center">Low: 56&deg;F</p>
-              </div>
-              <div class="col-1">
-                <h6 class="text-center">Wed</h6>
-                <div class="text-center"><i class="fas fa-cloud"></i></div>
-                <p class="text-center">High: 69&deg;F</p>
-                <p class="text-center">Low: 54&deg;F</p>
-              </div>
-              <div class="col-1">
-                <h6 class="text-center">Thu</h6>
-                <div class="text-center"><i class="fas fa-cloud-rain"></i></div>
-                <p class="text-center">High: 67&deg;F</p>
-                <p class="text-center">Low: 52&deg;F</p>
-              </div>
-              <div class="col-1">
-                <h6 class="text-center">Fri</h6>
-                <div class="text-center"><i class="fas fa-cloud"></i></div>
-                <p class="text-center">High: 71&deg;F</p>
-                <p class="text-center">Low: 55&deg;F</p>
-              </div>
-              <div class="col-1">
-                <h6 class="text-center">Sat</h6>
-                <div class="text-center"><i class="fas fa-sun"></i></div>
-                <p class="text-center">High: 75&deg;F</p>
-                <p class="text-center">Low: 60&deg;F</p>
-              </div>
-              <div class="col-1">
-                <h6 class="text-center">Sun</h6>
-                <div class="text-center"><i class="fas fa-cloud-sun"></i></div>
-                <p class="text-center">High: 73&deg;F</p>
-                <p class="text-center">Low: 58&deg;F</p>
-              </div>
-            </div>
-          </div>
+        <div class="col-6">
+          <ul>
+            <li>HUMIDITY: <span id="humidity"></span>%</li>
+            <li>WIND: <span id="wind-speed"></span> mph</li>
+          </ul>
         </div>
+        <span
+          ><a href="https://github.com/AshleyCSmith/weather-app" target="_blank"
+            >Open-source code</a
+          >
+          by Ashley Smith</span
+        >
       </div>
     </div>
-    <span class="github-page"
-      ><a href="https://github.com/AshleyCSmith/weather-app" target="_blank"
-        >Open-source code</a
-      >
-      by Ashley Smith</span
-    >
+
     <script src="src/index.js"></script>
   </body>
 </html>
