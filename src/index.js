@@ -14,7 +14,11 @@ function showTemperature(response) {
   cityChange.innerHTML = response.data.name + ", " + response.data.sys.country;
   humidityElement.innerHTML = response.data.main.humidity;
   windSpeedElement.innerHTML = Math.round(response.data.wind.speed);
-  weatherIcon.innerHTML = response.data.weather[0].icon;
+  weatherIcon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}.png`
+  );
+  weatherIcon.setAttribute("alt", response.data.weather[0].description);
 }
 
 function searchCity(event) {
