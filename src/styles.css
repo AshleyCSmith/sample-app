@@ -113,3 +113,8 @@ li {
 .github-page:hover a {
   text-decoration: underline;
 }
+
+#weather-icon {
+  width: 90px;
+  height: 90px;
+}
