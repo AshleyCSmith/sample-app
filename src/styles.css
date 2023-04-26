@@ -42,9 +42,18 @@ li {
   line-height: 1;
 }
 
-.units {
+#units {
   position: relative;
   top: -34px;
+}
+
+.weather-temperature a {
+  color: #5199e0;
+}
+
+#change-celcius,
+#change-fahrenheit {
+  text-decoration: none;
 }
 
 .weather-temps {
@@ -117,4 +126,9 @@ li {
 #weather-icon {
   width: 90px;
   height: 90px;
+}
+
+.weather-temperature .active {
+  color: rgb(33, 33, 33);
+  cursor: default;
 }
