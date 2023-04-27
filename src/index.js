@@ -8,6 +8,28 @@ let humidityElement = document.querySelector("#humidity");
 let windSpeedElement = document.querySelector("#wind-speed");
 let iconElement = document.querySelector("#weather-icon");
 
+function showForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let days = ["Thu", "Fri", "Sat", "Sun"];
+
+  let forecastHTML = `<div class="row">`;
+  days.forEach(function (day) {
+    forecastHTML += `
+   <div class="col-2">
+     <div class="weather-forecast-date">${day}</div>
+     <img src="http://openweathermap.org/img/wn/50d@2x.png" alt="" width="42" />
+     <div class="weather-forecast-temperature">
+       <span class="weather-forecast-temperature-max">18&deg;</span>
+       <span class="weather-forecast-temperature-min">12&deg;</span>
+     </div>
+   </div>
+`;
+  });
+
+  forecastHTML += `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function showTemperature(response) {
   temperatureElement.innerHTML = Math.round(response.data.main.temp);
   description.innerHTML = response.data.weather[0].description;
@@ -19,6 +41,7 @@ function showTemperature(response) {
   iconElement.setAttribute("src", iconUrl);
   iconElement.setAttribute("alt", response.data.weather[0].description);
   celciusTemperature = response.data.main.temp;
+  showForecast();
 }
 
 function searchCity(event) {

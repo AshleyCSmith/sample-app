@@ -151,7 +151,13 @@ li {
 .weather-forecast-temperature {
   font-size: 13px;
 }
-
 .row {
-  text-align: left;
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.col-2 {
+  padding: 0 10px;
 }
