@@ -8,26 +8,49 @@ let humidityElement = document.querySelector("#humidity");
 let windSpeedElement = document.querySelector("#wind-speed");
 let iconElement = document.querySelector("#weather-icon");
 
-function showForecast() {
+function formatDay(timestamp) {
+  let now = new Date(timestamp * 1000);
+  let day = now.toLocaleString("en-US", {
+    weekday: "short",
+  });
+  return day;
+}
+
+function showForecast(response) {
+  let dailyForecast = response.data.daily;
+
   let forecastElement = document.querySelector("#forecast");
-  let days = ["Thu", "Fri", "Sat", "Sun"];
 
   let forecastHTML = `<div class="row">`;
-  days.forEach(function (day) {
-    forecastHTML += `
+  dailyForecast.forEach(function (dailyForecastDay, index) {
+    if (index < 7) {
+      forecastHTML += `
    <div class="col-2">
-     <div class="weather-forecast-date">${day}</div>
-     <img src="http://openweathermap.org/img/wn/50d@2x.png" alt="" width="42" />
+     <div class="weather-forecast-date">${formatDay(dailyForecastDay.dt)}</div>
+     <img src="http://openweathermap.org/img/wn/${
+       dailyForecastDay.weather[0].icon
+     }@2x.png" alt="" width="42" />
      <div class="weather-forecast-temperature">
-       <span class="weather-forecast-temperature-max">18&deg;</span>
-       <span class="weather-forecast-temperature-min">12&deg;</span>
+       <span class="weather-forecast-temperature-max">${Math.round(
+         dailyForecastDay.temp.max
+       )}&deg;</span>
+       <span class="weather-forecast-temperature-min">${Math.round(
+         dailyForecastDay.temp.min
+       )}&deg;</span>
      </div>
    </div>
 `;
+    }
   });
 
   forecastHTML += `</div>`;
   forecastElement.innerHTML = forecastHTML;
+}
+
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&exclude=&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showForecast);
 }
 
 function showTemperature(response) {
@@ -41,7 +64,7 @@ function showTemperature(response) {
   iconElement.setAttribute("src", iconUrl);
   iconElement.setAttribute("alt", response.data.weather[0].description);
   celciusTemperature = response.data.main.temp;
-  showForecast();
+  getForecast(response.data.coord);
 }
 
 function searchCity(event) {
