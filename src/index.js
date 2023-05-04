@@ -49,7 +49,7 @@ function showForecast(response) {
 
 function getForecast(coordinates) {
   console.log(coordinates);
-  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&exclude=&appid=${apiKey}&units=metric`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&exclude=&appid=${apiKey}&units=imperial`;
   axios.get(apiUrl).then(showForecast);
 }
 
@@ -71,7 +71,7 @@ function searchCity(event) {
   event.preventDefault();
   let cityName = searchInput.value.trim();
   if (!cityName) return;
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=${apiKey}`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=imperial&appid=${apiKey}`;
   axios.get(apiUrl).then(showTemperature);
 }
 
@@ -79,7 +79,7 @@ function getCurrentLocationWeather() {
   navigator.geolocation.getCurrentPosition(function (position) {
     let lat = position.coords.latitude;
     let lon = position.coords.longitude;
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=imperial`;
     axios.get(apiUrl).then(showTemperature);
   });
 }
@@ -97,29 +97,6 @@ function updateTime() {
 }
 
 setInterval(updateTime, 1000);
-
-function showFahrenheit(event) {
-  event.preventDefault();
-  changeCelcius.classList.remove("active");
-  changeFahrenheit.classList.add("active");
-  let fahrenheitTemperature = (celciusTemperature * 9) / 5 + 32;
-  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
-}
-
-function showCelcius(event) {
-  event.preventDefault();
-  changeCelcius.classList.add("active");
-  changeFahrenheit.classList.remove("active");
-  temperatureElement.innerHTML = Math.round(celciusTemperature);
-}
-
-let changeFahrenheit = document.querySelector("#change-fahrenheit");
-changeFahrenheit.addEventListener("click", showFahrenheit);
-
-let changeCelcius = document.querySelector("#change-celcius");
-changeCelcius.addEventListener("click", showCelcius);
-
-let celciusTemperature = null;
 
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", searchCity);
